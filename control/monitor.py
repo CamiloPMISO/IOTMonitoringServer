@@ -47,13 +47,15 @@ def analyze_data():
 
         if variable == 'iluminosidad' and item["check_value"] < min_value:
             alert = True
-            
+
         elif item["check_value"] > max_value or item["check_value"] < min_value:
             alert = True
 
         if alert:
             message = "ALERT {} {} {}".format(variable, min_value, max_value)
+            print(message)
             topic = '{}/{}/{}/{}/in'.format(country, state, city, user)
+            print(topic)
             print(datetime.now(), "Sending alert to {} {}".format(topic, variable))
             client.publish(topic, message)
             alerts += 1
@@ -108,7 +110,7 @@ def start_cron():
     Inicia el cron que se encarga de ejecutar la función analyze_data cada 5 minutos.
     '''
     print("Iniciando cron...")
-    schedule.every(5).minutes.do(analyze_data)
+    schedule.every(1).minutes.do(analyze_data)
     print("Servicio de control iniciado")
     while 1:
         schedule.run_pending()
