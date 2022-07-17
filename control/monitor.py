@@ -50,7 +50,7 @@ def analyze_data():
         if variable == 'luminosidad' and item["check_value"] < min_value:
             alert = True
 
-        elif item["check_value"] > max_value or item["check_value"] < min_value:
+        elif variable != 'luminosidad'  and (item["check_value"] > max_value or item["check_value"] < min_value):
             alert = True
 
         if alert:
