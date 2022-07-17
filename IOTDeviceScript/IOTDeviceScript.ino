@@ -24,7 +24,7 @@
 
 // Sensor DHT
 DHT dht(DHTPIN, DHTTYPE);
-// Pantalla OLED
+// Pantalla LED 16X2
 LiquidCrystal_I2C lcd(0x27, 16, 2);  
 // Cliente WiFi
 WiFiClient net;
@@ -38,7 +38,7 @@ PubSubClient client(net);
 // Nombre de la red WiFi
 const char ssid[] = "H. Perafán"; // TODO cambiar por el nombre de la red WiFi
 // Contraseña de la red WiFi
-const char pass[] = "Prosperidad2022"; // TODO cambiar por la contraseña de la red WiFi
+const char pass[] = "XXXXXXXXX"; // TODO cambiar por la contraseña de la red WiFi
 
 //Conexión a Mosquitto
 #define USER "camilo" // TODO Reemplace UsuarioMQTT por un usuario (no administrador) que haya creado en la configuración del bróker de MQTT.
